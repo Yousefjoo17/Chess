@@ -1,4 +1,4 @@
-enum PieceType {
+enum PieceName {
   king,
   queen,
   rook,
