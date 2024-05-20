@@ -1,10 +1,59 @@
 import 'package:chess/core/AssetsData.dart';
+import 'package:chess/models/PieceType.dart';
 import 'package:chess/widgets/BuildPiece.dart';
 import 'package:flutter/material.dart';
-import 'package:chess/constants.dart'; // Ensure kSQUARE_LENGTH is available
+import 'package:chess/constants.dart';
 
 class PiecesPlacement extends StatelessWidget {
   const PiecesPlacement({super.key});
+
+  List<Widget> generatePieces(String color, double yOffset) {
+    List<Widget> pieces = [];
+    List<String> pieceOrder;
+    if (color == "white") {
+      pieceOrder = [
+        AssetsData.whiteRook,
+        AssetsData.whiteKnight,
+        AssetsData.whiteBishop,
+        AssetsData.whiteQueen,
+        AssetsData.whiteKing,
+        AssetsData.whiteBishop,
+        AssetsData.whiteKnight,
+        AssetsData.whiteRook,
+      ];
+    } else {
+      pieceOrder = [
+        AssetsData.blackRook,
+        AssetsData.blackKnight,
+        AssetsData.blackBishop,
+        AssetsData.blackQueen,
+        AssetsData.blackKing,
+        AssetsData.blackBishop,
+        AssetsData.blackKnight,
+        AssetsData.blackRook,
+      ];
+    }
+
+    for (int i = 0; i < 8; i++) {
+      pieces.add(
+        BiuldPiece(
+          piece: pieceOrder[i],
+          x: i * kSQUARE_LENGTH,
+          y: yOffset,
+          pieceType: PieceType.values[i % PieceType.values.length],
+        ),
+      );
+      pieces.add(
+        BiuldPiece(
+          piece: color == "white" ? AssetsData.whitePawn : AssetsData.blackPawn,
+          x: i * kSQUARE_LENGTH,
+          y: color == "white" ? yOffset - kSQUARE_LENGTH : kSQUARE_LENGTH,
+          pieceType: PieceType.pawn,
+        ),
+      );
+    }
+    return pieces;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,121 +65,8 @@ class PiecesPlacement extends StatelessWidget {
         height: kBOARD_LENGTH,
         child: Stack(
           children: [
-            /************************White Pieces**************************/
-            BiuldPiece(
-                piece: AssetsData.whiteRook,
-                x: 0,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteKnight,
-                x: kSQUARE_LENGTH,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteBishop,
-                x: kSQUARE_LENGTH * 2,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteQueen,
-                x: kSQUARE_LENGTH * 3,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteKing,
-                x: kSQUARE_LENGTH * 4,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteBishop,
-                x: kSQUARE_LENGTH * 5,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteKnight,
-                x: kSQUARE_LENGTH * 6,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.whiteRook,
-                x: kSQUARE_LENGTH * 7,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH),
-            ////////White Pawns/////////
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: 0,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 2,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 3,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 4,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 5,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 6,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-            BiuldPiece(
-                piece: AssetsData.whitePawn,
-                x: kSQUARE_LENGTH * 7,
-                y: kBOARD_LENGTH - kSQUARE_LENGTH * 2),
-
-            /*******************************************************************************************/
-            /*******************************************************************************************/
-            /************************************Black Pieces******************************************/
-
-            BiuldPiece(piece: AssetsData.blackRook, x: 0, y: 0),
-            BiuldPiece(piece: AssetsData.blackKnight, x: kSQUARE_LENGTH, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackBishop, x: kSQUARE_LENGTH * 2, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackQueen, x: kSQUARE_LENGTH * 3, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackKing, x: kSQUARE_LENGTH * 4, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackBishop, x: kSQUARE_LENGTH * 5, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackKnight, x: kSQUARE_LENGTH * 6, y: 0),
-            BiuldPiece(
-                piece: AssetsData.blackRook, x: kSQUARE_LENGTH * 7, y: 0),
-            ////////White Pawns/////////
-            BiuldPiece(piece: AssetsData.blackPawn, x: 0, y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 2,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 3,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 4,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 5,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 6,
-                y: kSQUARE_LENGTH),
-            BiuldPiece(
-                piece: AssetsData.blackPawn,
-                x: kSQUARE_LENGTH * 7,
-                y: kSQUARE_LENGTH),
+            ...generatePieces("white", kBOARD_LENGTH - kSQUARE_LENGTH),
+            ...generatePieces("black", 0),
           ],
         ),
       ),

@@ -14,7 +14,7 @@ class Chess extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const MainView(),
       theme: ThemeData(
-          scaffoldBackgroundColor: Color.fromARGB(255, 204, 249, 255)),
+          scaffoldBackgroundColor: const Color.fromARGB(255, 61, 70, 71)),
     );
   }
 }
