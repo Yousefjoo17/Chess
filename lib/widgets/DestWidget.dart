@@ -14,18 +14,26 @@ class DestWidget extends StatelessWidget {
     return Positioned(
       left: destModel.x!,
       top: destModel.y!,
-      width: kSQUARE_LENGTH,
-      height: kSQUARE_LENGTH,
-      child: GestureDetector(
-        onTap: () {
-          // Add your onTap logic here
-        },
-        child: Container(
-          width: kSQUARE_LENGTH,
-          height: kSQUARE_LENGTH,
-          decoration:
-              const BoxDecoration(color: Color.fromARGB(255, 146, 238, 149)),
-        ),
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: () {
+              print("MOVE Selected Piece here");
+              // move to this destination and do other logic
+            },
+            child: Container(
+              width: kSQUARE_LENGTH,
+              height: kSQUARE_LENGTH,
+              color: Colors.transparent,
+              child: const Center(
+                child: CircleAvatar(
+                  radius: 6,
+                  backgroundColor: Colors.green,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

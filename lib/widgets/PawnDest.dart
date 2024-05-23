@@ -48,7 +48,6 @@ class PawnDest extends StatelessWidget {
         );
       }
     }
-
     return Stack(
       children: destinations,
     );
