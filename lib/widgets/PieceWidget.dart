@@ -51,7 +51,7 @@ class _PieceWidgetState extends State<PieceWidget> {
                   height: kSQUARE_LENGTH,
                 ),
         ),
-        if (clicked) GenerateDestWidgets(pieceModel: widget.pieceModel),
+        if (clicked) DestGeneratorWidget(pieceModel: widget.pieceModel),
       ],
     );
   }
