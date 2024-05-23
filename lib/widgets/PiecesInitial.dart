@@ -8,8 +8,8 @@ import 'package:chess/widgets/PieceWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
 
-class PiecesPlacement extends StatelessWidget {
-  const PiecesPlacement({super.key});
+class PiecesInitial extends StatelessWidget {
+  const PiecesInitial({super.key});
 
   List<Widget> generatePieces(String color, double yOffset) {
     List<Widget> pieces = [];
@@ -83,18 +83,14 @@ class PiecesPlacement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 0,
-      top: 0,
-      child: SizedBox(
-        width: kBOARD_LENGTH,
-        height: kBOARD_LENGTH,
-        child: Stack(
-          children: [
-            ...generatePieces("white", kBOARD_LENGTH - kSQUARE_LENGTH),
-            ...generatePieces("black", 0),
-          ],
-        ),
+    return SizedBox(
+      width: kBOARD_LENGTH,
+      height: kBOARD_LENGTH,
+      child: Stack(
+        children: [
+          ...generatePieces("white", kBOARD_LENGTH - kSQUARE_LENGTH),
+          ...generatePieces("black", 0),
+        ],
       ),
     );
   }

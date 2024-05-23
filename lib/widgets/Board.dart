@@ -1,17 +1,10 @@
 import 'package:chess/constants.dart';
-import 'package:chess/widgets/PiecesPlacement.dart';
+import 'package:chess/widgets/PiecesInitial.dart';
 import 'package:flutter/material.dart';
 
-class Board extends StatefulWidget {
+class Board extends StatelessWidget {
   const Board({super.key});
 
-  @override
-  State<Board> createState() => _BoardState();
-}
-
-class _BoardState extends State<Board> {
-  double x = 0;
-  double y = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -50,7 +43,7 @@ class _BoardState extends State<Board> {
             ),
           ),
         ),
-        const PiecesPlacement(),
+        const PiecesInitial(),
       ],
     );
   }
