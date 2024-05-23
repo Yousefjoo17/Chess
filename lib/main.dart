@@ -1,4 +1,4 @@
-import 'package:chess/MainView.dart';
+import 'package:chess/views/MainView.dart';
 import 'package:chess/models/Pair.dart';
 import 'package:flutter/material.dart';
 

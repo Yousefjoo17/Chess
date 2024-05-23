@@ -10,7 +10,7 @@ class GenerateDestWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ...destinationsGenerator(pieceModel),
+        destinationsGenerator(pieceModel),
       ],
     );
   }

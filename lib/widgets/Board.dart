@@ -30,7 +30,7 @@ class _BoardState extends State<Board> {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: kSQUARE_LENGTH,
                       height: kSQUARE_LENGTH,
                     ),
@@ -40,7 +40,7 @@ class _BoardState extends State<Board> {
                     decoration: const BoxDecoration(
                       color: Colors.brown,
                     ),
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: kSQUARE_LENGTH,
                       height: kSQUARE_LENGTH,
                     ),
