@@ -1,13 +1,14 @@
+import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/views/MainView.dart';
-import 'package:chess/models/Pair.dart';
 import 'package:flutter/material.dart';
 
 int pieceID = 0;
-Map<int, Pair> positions = {};
+Map<int, PieceModel> piecesInfo = {};
 bool clickedPiece = false;
 PieceModel? selectedPiece;
 void main() {
+  initializePieces();
   runApp(const Chess());
 }
 
