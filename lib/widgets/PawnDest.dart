@@ -13,44 +13,61 @@ class PawnDest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> destinations = [];
-
+    PieceModel? foundPieceModel;
     if (pieceModel.pieceColor == PieceColor.white) {
-      destinations.add(
-        DestWidget(
-          destModel:
-              DestModel(x: pieceModel.x, y: pieceModel.y! - kSQUARE_LENGTH),
-          pieceModel: pieceModel,
-        ),
-      );
-      if (!pieceModel.movedBefore!) {
+      foundPieceModel =
+          isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH);
+      if (foundPieceModel == null) {
         destinations.add(
           DestWidget(
-            destModel: DestModel(
-                x: pieceModel.x, y: pieceModel.y! - 2 * kSQUARE_LENGTH),
+            destModel:
+                DestModel(x: pieceModel.x, y: pieceModel.y! - kSQUARE_LENGTH),
             pieceModel: pieceModel,
           ),
         );
       }
-    } else {
-      destinations.add(
-        DestWidget(
-          destModel:
-              DestModel(x: pieceModel.x, y: pieceModel.y! + kSQUARE_LENGTH),
-          pieceModel: pieceModel,
-        ),
-      );
       if (!pieceModel.movedBefore!) {
+        foundPieceModel =
+            isPieceFound(pieceModel.x!, pieceModel.y! - 2 * kSQUARE_LENGTH);
+        if (foundPieceModel == null) {
+          destinations.add(
+            DestWidget(
+              destModel: DestModel(
+                  x: pieceModel.x, y: pieceModel.y! - 2 * kSQUARE_LENGTH),
+              pieceModel: pieceModel,
+            ),
+          );
+        }
+      }
+    } else {
+      foundPieceModel =
+          isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH);
+      if (foundPieceModel == null) {
         destinations.add(
           DestWidget(
-            destModel: DestModel(
-                x: pieceModel.x, y: pieceModel.y! + 2 * kSQUARE_LENGTH),
+            destModel:
+                DestModel(x: pieceModel.x, y: pieceModel.y! + kSQUARE_LENGTH),
             pieceModel: pieceModel,
           ),
         );
+      }
+
+      if (!pieceModel.movedBefore!) {
+        foundPieceModel =
+            isPieceFound(pieceModel.x!, pieceModel.y! + 2 * kSQUARE_LENGTH);
+        if (foundPieceModel == null) {
+          destinations.add(
+            DestWidget(
+              destModel: DestModel(
+                  x: pieceModel.x, y: pieceModel.y! + 2 * kSQUARE_LENGTH),
+              pieceModel: pieceModel,
+            ),
+          );
+        }
       }
     }
     ////////////////////////////////////////
-    PieceModel? foundPieceModel = isPieceFound(
+    foundPieceModel = isPieceFound(
         pieceModel.x! - kSQUARE_LENGTH, pieceModel.y! - kSQUARE_LENGTH);
     if (pieceModel.pieceColor == PieceColor.white &&
         foundPieceModel != null &&

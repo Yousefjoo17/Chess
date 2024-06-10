@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:meta/meta.dart';
@@ -23,5 +24,18 @@ class ManagerCubit extends Cubit<ManagerState> {
     emit(ManagerReBuild());
   }
 
-  void movePiece() {}
+  void movePiece(PieceModel pieceModel, double x, double y) {
+    PieceModel? foundPieceModel;
+    foundPieceModel = isPieceFound(x, y);
+    piecesInfo[pieceModel.id]!.selected = false;
+    selectedPiece = null;
+    pieceModel.movedBefore = true;
+    piecesInfo[pieceModel.id]!.x = x;
+    piecesInfo[pieceModel.id]!.y = y;
+
+    if (foundPieceModel != null) {
+      piecesInfo[foundPieceModel.id]!.live = false;
+    }
+    emit(ManagerReBuild());
+  }
 }

@@ -14,8 +14,12 @@ class KnightDest extends StatelessWidget {
     return Stack(
       children: [
         if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                pieceModel.y! - 2 * kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - 2 * kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
+                        pieceModel.y! - 2 * kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + kSQUARE_LENGTH,
@@ -23,8 +27,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                pieceModel.y! - 2 * kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - 2 * kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
+                        pieceModel.y! - 2 * kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - kSQUARE_LENGTH,
@@ -32,8 +40,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                pieceModel.y! + 2 * kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + 2 * kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
+                        pieceModel.y! + 2 * kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - kSQUARE_LENGTH,
@@ -41,8 +53,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                pieceModel.y! + 2 * kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + 2 * kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
+                        pieceModel.y! + 2 * kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + kSQUARE_LENGTH,
@@ -50,8 +66,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - 2 * kSQUARE_LENGTH,
-                pieceModel.y! + kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - 2 * kSQUARE_LENGTH,
+                        pieceModel.y! + kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - 2 * kSQUARE_LENGTH,
@@ -59,8 +79,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! + 2 * kSQUARE_LENGTH,
-                pieceModel.y! + kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + 2 * kSQUARE_LENGTH,
+                        pieceModel.y! + kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + 2 * kSQUARE_LENGTH,
@@ -68,8 +92,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - 2 * kSQUARE_LENGTH,
-                pieceModel.y! - kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - 2 * kSQUARE_LENGTH,
+                        pieceModel.y! - kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - 2 * kSQUARE_LENGTH,
@@ -77,8 +105,12 @@ class KnightDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! + 2 * kSQUARE_LENGTH,
-                pieceModel.y! - kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + 2 * kSQUARE_LENGTH,
+                        pieceModel.y! - kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + 2 * kSQUARE_LENGTH,

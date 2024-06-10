@@ -1,7 +1,9 @@
+import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DestWidget extends StatelessWidget {
   const DestWidget(
@@ -18,8 +20,8 @@ class DestWidget extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              print("MOVE Selected Piece here");
-              // move to this destination and do other logic
+              BlocProvider.of<ManagerCubit>(context)
+                  .movePiece(pieceModel, destModel.x!, destModel.y!);
             },
             child: Container(
               width: kSQUARE_LENGTH,
