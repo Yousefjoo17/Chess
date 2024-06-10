@@ -32,10 +32,6 @@ class DestGeneratorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        destinationsGenerator(pieceModel),
-      ],
-    );
+    return destinationsGenerator(pieceModel);
   }
 }

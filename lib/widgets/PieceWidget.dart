@@ -1,6 +1,6 @@
 import 'package:chess/constants.dart';
+import 'package:chess/main.dart';
 import 'package:chess/models/PieceModel.dart';
-import 'package:chess/widgets/GenerateDestWidgets.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -15,7 +15,7 @@ class PieceWidget extends StatefulWidget {
 }
 
 class _PieceWidgetState extends State<PieceWidget> {
-  bool clicked = false;
+//  bool clicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,11 @@ class _PieceWidgetState extends State<PieceWidget> {
               ? GestureDetector(
                   onTap: () {
                     setState(() {
-                      clicked = !clicked;
+                      clickedPiece = !clickedPiece;
+                      selectedPiece = widget.pieceModel;
                     });
                   },
-                  child: clicked
+                  child: selectedPiece == widget.pieceModel
                       ? Container(
                           decoration: const BoxDecoration(color: Colors.green),
                           child: Image.asset(
@@ -51,7 +52,6 @@ class _PieceWidgetState extends State<PieceWidget> {
                   height: kSQUARE_LENGTH,
                 ),
         ),
-        if (clicked) DestGeneratorWidget(pieceModel: widget.pieceModel),
       ],
     );
   }

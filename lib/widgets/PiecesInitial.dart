@@ -4,6 +4,7 @@ import 'package:chess/models/Pair.dart';
 import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
+import 'package:chess/widgets/GenerateDestWidgets.dart';
 import 'package:chess/widgets/PieceWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
@@ -14,7 +15,7 @@ class PiecesInitial extends StatelessWidget {
   List<Widget> generatePieces(String color, double yOffset) {
     List<Widget> pieces = [];
     List<String> pieceOrder;
-    List<PieceName> PiecesNames = [
+    List<PieceName> piecesNames = [
       PieceName.rook,
       PieceName.knight,
       PieceName.bishop,
@@ -58,7 +59,7 @@ class PiecesInitial extends StatelessWidget {
         image: pieceOrder[i],
         movedBefore: false,
         pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
-        pieceName: PiecesNames[i],
+        pieceName: piecesNames[i],
         live: true,
       );
       pieces.add(PieceWidget(pieceModel: mainPiece));
@@ -90,6 +91,7 @@ class PiecesInitial extends StatelessWidget {
         children: [
           ...generatePieces("white", kBOARD_LENGTH - kSQUARE_LENGTH),
           ...generatePieces("black", 0),
+          if (clickedPiece) DestGeneratorWidget(pieceModel: selectedPiece!),
         ],
       ),
     );
