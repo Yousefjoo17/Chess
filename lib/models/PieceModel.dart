@@ -10,15 +10,17 @@ class PieceModel {
   PieceColor? pieceColor;
   PieceName? pieceName;
   bool? live;
+  bool? selected;
 
   PieceModel({
-    this.id,
-    this.x,
-    this.y,
-    this.image,
-    this.movedBefore,
-    this.pieceColor,
-    this.pieceName,
-    this.live,
+  required this.id,
+  required this.x,
+  required this.y,
+  required this.image,
+  required this.movedBefore,
+  required this.pieceColor,
+  required this.pieceName,
+  required this.live,
+  required this.selected,
   });
 }

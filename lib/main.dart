@@ -1,12 +1,14 @@
 import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/models/PieceModel.dart';
+import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:chess/views/MainView.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-int pieceID = 0;
+int pieceID = 0; // automatic Id of the piececs
 Map<int, PieceModel> piecesInfo = {};
-bool clickedPiece = false;
-PieceModel? selectedPiece;
+// any update of any piece must be documented here
+PieceModel? selectedPiece; //the selected id
 void main() {
   initializePieces();
   runApp(const Chess());
@@ -17,11 +19,14 @@ class Chess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const MainView(),
-      theme: ThemeData(
-          scaffoldBackgroundColor: const Color.fromARGB(255, 61, 70, 71)),
+    return BlocProvider(
+      create: (context) => ManagerCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const MainView(),
+        theme: ThemeData(
+            scaffoldBackgroundColor: const Color.fromARGB(255, 61, 70, 71)),
+      ),
     );
   }
 }

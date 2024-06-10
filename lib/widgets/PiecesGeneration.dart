@@ -1,11 +1,13 @@
 import 'package:chess/main.dart';
+import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:chess/widgets/GenerateDestWidgets.dart';
 import 'package:chess/widgets/PieceWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PiecesInitial extends StatelessWidget {
-  const PiecesInitial({super.key});
+class PiecesGeneration extends StatelessWidget {
+  const PiecesGeneration({super.key});
 
   List<Widget> generatePieces() {
     List<Widget> pieces = [];
@@ -20,11 +22,16 @@ class PiecesInitial extends StatelessWidget {
     return SizedBox(
       width: kBOARD_LENGTH,
       height: kBOARD_LENGTH,
-      child: Stack(
-        children: [
-          ...generatePieces(),
-          if (clickedPiece) DestGeneratorWidget(pieceModel: selectedPiece!),
-        ],
+      child: BlocBuilder<ManagerCubit, ManagerState>(
+        builder: (context, state) {
+          return Stack(
+            children: [
+              ...generatePieces(),
+              if (selectedPiece != null)
+                DestGeneratorWidget(pieceModel: selectedPiece!),
+            ],
+          );
+        },
       ),
     );
   }

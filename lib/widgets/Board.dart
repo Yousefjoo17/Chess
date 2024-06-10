@@ -1,5 +1,5 @@
 import 'package:chess/constants.dart';
-import 'package:chess/widgets/PiecesInitial.dart';
+import 'package:chess/widgets/PiecesGeneration.dart';
 import 'package:flutter/material.dart';
 
 class Board extends StatelessWidget {
@@ -43,7 +43,7 @@ class Board extends StatelessWidget {
             ),
           ),
         ),
-        const PiecesInitial(),
+        const PiecesGeneration(),
       ],
     );
   }

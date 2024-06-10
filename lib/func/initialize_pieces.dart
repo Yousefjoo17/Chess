@@ -53,6 +53,7 @@ void initliaePiecesOneSide(String color, double yOffset) {
       pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
       pieceName: piecesNames[i],
       live: true,
+      selected: false,
     );
     piecesInfo[mainPiece.id!] = mainPiece;
 
@@ -66,6 +67,7 @@ void initliaePiecesOneSide(String color, double yOffset) {
       pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
       pieceName: PieceName.pawn,
       live: true,
+      selected: false,
     );
     piecesInfo[pawnPiece.id!] = pawnPiece;
   }
