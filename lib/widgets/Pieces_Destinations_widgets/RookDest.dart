@@ -2,7 +2,7 @@ import 'package:chess/constants.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
-import 'package:chess/widgets/DestWidget.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/DestWidget.dart';
 import 'package:flutter/material.dart';
 
 class RookDest extends StatelessWidget {

@@ -5,4 +5,4 @@ sealed class ManagerState {}
 
 final class ManagerInitial extends ManagerState {}
 
-final class ManagerReBuild extends ManagerState {}
+final class ManagerReBuildPieces extends ManagerState {}

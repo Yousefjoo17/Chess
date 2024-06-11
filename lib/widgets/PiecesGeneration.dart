@@ -1,6 +1,6 @@
 import 'package:chess/main.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
-import 'package:chess/widgets/GenerateDestWidgets.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/GenerateDestWidgets.dart';
 import 'package:chess/widgets/PieceWidget.dart';
 import 'package:chess/widgets/PromotionWidget.dart';
 import 'package:flutter/material.dart';

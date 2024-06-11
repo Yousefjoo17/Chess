@@ -23,7 +23,7 @@ class PromotionWidget extends StatelessWidget {
                     pawn: pawn),
                 HigherOrderPieceWidget(
                     image: AssetsData.whiteKnight,
-                    pieceName: PieceName.king,
+                    pieceName: PieceName.knight,
                     pawn: pawn),
                 HigherOrderPieceWidget(
                     image: AssetsData.whiteRook,

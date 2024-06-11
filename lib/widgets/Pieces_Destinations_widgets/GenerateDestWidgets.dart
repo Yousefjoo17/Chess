@@ -1,10 +1,10 @@
 import 'package:chess/models/PieceType.dart';
-import 'package:chess/widgets/BishopDest.dart';
-import 'package:chess/widgets/PawnDest.dart';
-import 'package:chess/widgets/QueenDest.dart';
-import 'package:chess/widgets/RookDest.dart';
-import 'package:chess/widgets/kingDest.dart';
-import 'package:chess/widgets/knightDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/BishopDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/PawnDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/QueenDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/RookDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/kingDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/knightDest.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/models/PieceModel.dart';
 

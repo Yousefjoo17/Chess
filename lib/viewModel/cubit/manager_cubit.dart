@@ -21,8 +21,7 @@ class ManagerCubit extends Cubit<ManagerState> {
       piecesInfo[pieceModel.id]!.selected = true;
       selectedPiece = pieceModel;
     }
-
-    emit(ManagerReBuild());
+    emit(ManagerReBuildPieces());
   }
 
   void movePiece(PieceModel pieceModel, double x, double y) {
@@ -37,17 +36,17 @@ class ManagerCubit extends Cubit<ManagerState> {
     if (foundPieceModel != null) {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
-    emit(ManagerReBuild());
+    emit(ManagerReBuildPieces());
   }
 
   void offerPromotion() {
-    emit(ManagerReBuild());
+    emit(ManagerReBuildPieces());
   }
 
   void promotePawn(String image, PieceName pieceName, PieceModel pawn) {
     piecesInfo[pawn.id]!.image = image;
     piecesInfo[pawn.id]!.pieceName = pieceName;
-    emit(ManagerReBuild());
     pawnWantToPromotre = null;
+    emit(ManagerReBuildPieces());
   }
 }

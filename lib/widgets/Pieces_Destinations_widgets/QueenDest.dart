@@ -1,6 +1,6 @@
 import 'package:chess/models/PieceModel.dart';
-import 'package:chess/widgets/BishopDest.dart';
-import 'package:chess/widgets/RookDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/BishopDest.dart';
+import 'package:chess/widgets/Pieces_Destinations_widgets/RookDest.dart';
 import 'package:flutter/material.dart';
 
 class QueenDest extends StatelessWidget {
