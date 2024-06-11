@@ -1,6 +1,6 @@
 import 'package:chess/constants.dart';
 import 'package:chess/core/AssetsData.dart';
-import 'package:chess/widgets/PiecesGeneration.dart';
+import 'package:chess/widgets/PiecesGenerator.dart';
 import 'package:chess/widgets/PlayerWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +52,7 @@ class Board extends StatelessWidget {
                 ),
               ),
             ),
-            const PiecesGeneration(),
+            const PiecesGenerator(),
           ],
         ),
         const PlayerWidget(

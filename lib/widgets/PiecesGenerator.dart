@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PiecesGeneration extends StatelessWidget {
-  const PiecesGeneration({super.key});
+class PiecesGenerator extends StatelessWidget {
+  const PiecesGenerator({super.key});
 
   List<Widget> generatePieces() {
     List<Widget> pieces = [];
