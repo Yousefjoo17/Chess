@@ -12,4 +12,7 @@ class AssetsData {
   static const String blackKnight = "Assets/images/black_knight.png";
   static const String blackRook = "Assets/images/black_rook.png";
   static const String blackPawn = "Assets/images/black_pawn.png";
+
+  static const String player1 = "Assets/images/player1.png";
+  static const String player2 = "Assets/images/player2.png";
 }

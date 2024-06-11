@@ -8,7 +8,7 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
@@ -16,7 +16,7 @@ class MainView extends StatelessWidget {
             children: [
               Text(
                 "Chess",
-                style: TextStyle(fontSize: 64, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
               ),
             ],
           ),
