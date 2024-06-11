@@ -12,7 +12,11 @@ class KingDest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH, pieceModel.y!) == null)
+        if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH, pieceModel.y!) ==
+                null ||
+            isPieceFound(pieceModel.x! + kSQUARE_LENGTH, pieceModel.y!)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
             destModel: DestModel(
               x: pieceModel.x! + kSQUARE_LENGTH,
@@ -21,7 +25,11 @@ class KingDest extends StatelessWidget {
             pieceModel: pieceModel,
           ),
         //
-        if (isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH) == null)
+        if (isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
             destModel: DestModel(
               x: pieceModel.x,
@@ -30,7 +38,11 @@ class KingDest extends StatelessWidget {
             pieceModel: pieceModel,
           ),
         //
-        if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH, pieceModel.y!) == null)
+        if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH, pieceModel.y!) ==
+                null ||
+            isPieceFound(pieceModel.x! - kSQUARE_LENGTH, pieceModel.y!)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
             destModel: DestModel(
               x: pieceModel.x! - kSQUARE_LENGTH,
@@ -39,7 +51,11 @@ class KingDest extends StatelessWidget {
             pieceModel: pieceModel,
           ),
         //
-        if (isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH) == null)
+        if (isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
             destModel: DestModel(
               x: pieceModel.x,
@@ -49,8 +65,12 @@ class KingDest extends StatelessWidget {
           ),
         //
         if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                pieceModel.y! + kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
+                        pieceModel.y! + kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + kSQUARE_LENGTH,
@@ -58,8 +78,12 @@ class KingDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                pieceModel.y! + kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! + kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
+                        pieceModel.y! + kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - kSQUARE_LENGTH,
@@ -67,8 +91,12 @@ class KingDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                pieceModel.y! - kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
+                        pieceModel.y! - kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! + kSQUARE_LENGTH,
@@ -76,8 +104,12 @@ class KingDest extends StatelessWidget {
               pieceModel: pieceModel),
         //
         if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                pieceModel.y! - kSQUARE_LENGTH) ==
-            null)
+                    pieceModel.y! - kSQUARE_LENGTH) ==
+                null ||
+            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
+                        pieceModel.y! - kSQUARE_LENGTH)!
+                    .pieceColor !=
+                pieceModel.pieceColor)
           DestWidget(
               destModel: DestModel(
                   x: pieceModel.x! - kSQUARE_LENGTH,
