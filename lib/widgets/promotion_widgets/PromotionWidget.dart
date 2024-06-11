@@ -3,7 +3,7 @@ import 'package:chess/core/AssetsData.dart';
 import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
-import 'package:chess/widgets/higherOrderPiece.dart';
+import 'package:chess/widgets/promotion_widgets/higherOrderPiece.dart';
 import 'package:flutter/material.dart';
 
 class PromotionWidget extends StatelessWidget {
