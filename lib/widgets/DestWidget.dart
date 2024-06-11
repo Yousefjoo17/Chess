@@ -27,7 +27,6 @@ class DestWidget extends StatelessWidget {
               //for panws only
               if (pieceModel.pieceName == PieceName.pawn &&
                   (destModel.y == 0 || destModel.y == 7 * kSQUARE_LENGTH)) {
-                print("it should be promoted !");
                 pawnWantToPromotre = pieceModel;
                 BlocProvider.of<ManagerCubit>(context).offerPromotion();
               }

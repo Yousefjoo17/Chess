@@ -11,7 +11,6 @@ class PromotionWidget extends StatelessWidget {
   final PieceModel pawn;
   @override
   Widget build(BuildContext context) {
-    print("Hi I'm the  prmoted widget");
     return pawn.pieceColor == PieceColor.white
         ? Positioned(
             top: 0,

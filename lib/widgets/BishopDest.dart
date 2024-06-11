@@ -72,7 +72,7 @@ List<Widget> moveBishopLeftDown(PieceModel pieceModel) {
 
   for (int i = 1; i < 8; i++) {
     foundPieceModel = isPieceFound(pieceModel.x! - i * kSQUARE_LENGTH,
-        pieceModel.y! + pieceModel.y! + i * kSQUARE_LENGTH);
+        pieceModel.y! + i * kSQUARE_LENGTH);
     destWidget = DestWidget(
       destModel: DestModel(
         x: pieceModel.x! - i * kSQUARE_LENGTH,

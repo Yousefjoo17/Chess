@@ -41,7 +41,6 @@ class ManagerCubit extends Cubit<ManagerState> {
   }
 
   void offerPromotion() {
-    print("Will rebuild now");
     emit(ManagerReBuild());
   }
 
