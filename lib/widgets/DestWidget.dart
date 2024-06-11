@@ -1,3 +1,5 @@
+import 'package:chess/main.dart';
+import 'package:chess/models/PieceType.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/models/DestModel.dart';
@@ -22,6 +24,13 @@ class DestWidget extends StatelessWidget {
             onTap: () {
               BlocProvider.of<ManagerCubit>(context)
                   .movePiece(pieceModel, destModel.x!, destModel.y!);
+              //for panws only
+              if (pieceModel.pieceName == PieceName.pawn &&
+                  (destModel.y == 0 || destModel.y == 7 * kSQUARE_LENGTH)) {
+                print("it should be promoted !");
+                pawnWantToPromotre = pieceModel;
+                BlocProvider.of<ManagerCubit>(context).offerPromotion();
+              }
             },
             child: Container(
               width: kSQUARE_LENGTH,

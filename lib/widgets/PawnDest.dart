@@ -14,6 +14,7 @@ class PawnDest extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> destinations = [];
     PieceModel? foundPieceModel;
+
     if (pieceModel.pieceColor == PieceColor.white) {
       foundPieceModel =
           isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH);
@@ -26,6 +27,7 @@ class PawnDest extends StatelessWidget {
           ),
         );
       }
+      //
       if (!pieceModel.movedBefore!) {
         foundPieceModel =
             isPieceFound(pieceModel.x!, pieceModel.y! - 2 * kSQUARE_LENGTH);
@@ -39,6 +41,8 @@ class PawnDest extends StatelessWidget {
           );
         }
       }
+      //
+      //////////////////////
     } else {
       foundPieceModel =
           isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH);
@@ -51,7 +55,7 @@ class PawnDest extends StatelessWidget {
           ),
         );
       }
-
+      //
       if (!pieceModel.movedBefore!) {
         foundPieceModel =
             isPieceFound(pieceModel.x!, pieceModel.y! + 2 * kSQUARE_LENGTH);
@@ -65,6 +69,7 @@ class PawnDest extends StatelessWidget {
           );
         }
       }
+      //
     }
     ////////////////////////////////////////
     foundPieceModel = isPieceFound(
@@ -78,6 +83,7 @@ class PawnDest extends StatelessWidget {
               y: pieceModel.y! - kSQUARE_LENGTH),
           pieceModel: pieceModel));
     }
+    //
     foundPieceModel = isPieceFound(
         pieceModel.x! + kSQUARE_LENGTH, pieceModel.y! - kSQUARE_LENGTH);
     if (pieceModel.pieceColor == PieceColor.white &&
@@ -89,6 +95,7 @@ class PawnDest extends StatelessWidget {
               y: pieceModel.y! - kSQUARE_LENGTH),
           pieceModel: pieceModel));
     }
+    //
     foundPieceModel = isPieceFound(
         pieceModel.x! + kSQUARE_LENGTH, pieceModel.y! + kSQUARE_LENGTH);
     if (pieceModel.pieceColor == PieceColor.black &&
@@ -100,6 +107,7 @@ class PawnDest extends StatelessWidget {
               y: pieceModel.y! + kSQUARE_LENGTH),
           pieceModel: pieceModel));
     }
+    //
     foundPieceModel = isPieceFound(
         pieceModel.x! - kSQUARE_LENGTH, pieceModel.y! + kSQUARE_LENGTH);
     if (pieceModel.pieceColor == PieceColor.black &&
@@ -111,6 +119,7 @@ class PawnDest extends StatelessWidget {
               y: pieceModel.y! + kSQUARE_LENGTH),
           pieceModel: pieceModel));
     }
+    //
 
     return Stack(
       children: destinations,

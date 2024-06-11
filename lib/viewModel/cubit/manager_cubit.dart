@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceModel.dart';
+import 'package:chess/models/PieceType.dart';
 import 'package:meta/meta.dart';
 
 part 'manager_state.dart';
@@ -37,5 +38,17 @@ class ManagerCubit extends Cubit<ManagerState> {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
     emit(ManagerReBuild());
+  }
+
+  void offerPromotion() {
+    print("Will rebuild now");
+    emit(ManagerReBuild());
+  }
+
+  void promotePawn(String image, PieceName pieceName, PieceModel pawn) {
+    piecesInfo[pawn.id]!.image = image;
+    piecesInfo[pawn.id]!.pieceName = pieceName;
+    emit(ManagerReBuild());
+    pawnWantToPromotre = null;
   }
 }

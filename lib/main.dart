@@ -9,6 +9,7 @@ int pieceID = 0; // automatic Id of the piececs
 Map<int, PieceModel> piecesInfo = {};
 // any update of any piece must be documented here
 PieceModel? selectedPiece; //the selected id
+PieceModel? pawnWantToPromotre;
 void main() {
   initializePieces();
   runApp(const Chess());
