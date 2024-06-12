@@ -1,5 +1,5 @@
-import 'package:chess/constants.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/dests/get_bishop_dest.dart';
+import 'package:chess/func/dests/get_rook_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/widgets/Pieces_Destinations_widgets/DestWidget.dart';
@@ -12,110 +12,35 @@ class KingDest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH, pieceModel.y!) ==
-                null ||
-            isPieceFound(pieceModel.x! + kSQUARE_LENGTH, pieceModel.y!)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-            destModel: DestModel(
-              x: pieceModel.x! + kSQUARE_LENGTH,
-              y: pieceModel.y,
-            ),
-            pieceModel: pieceModel,
-          ),
-        //
-        if (isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-            destModel: DestModel(
-              x: pieceModel.x,
-              y: pieceModel.y! + kSQUARE_LENGTH,
-            ),
-            pieceModel: pieceModel,
-          ),
-        //
-        if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH, pieceModel.y!) ==
-                null ||
-            isPieceFound(pieceModel.x! - kSQUARE_LENGTH, pieceModel.y!)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-            destModel: DestModel(
-              x: pieceModel.x! - kSQUARE_LENGTH,
-              y: pieceModel.y,
-            ),
-            pieceModel: pieceModel,
-          ),
-        //
-        if (isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-            destModel: DestModel(
-              x: pieceModel.x,
-              y: pieceModel.y! - kSQUARE_LENGTH,
-            ),
-            pieceModel: pieceModel,
-          ),
-        //
-        if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                    pieceModel.y! + kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                        pieceModel.y! + kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-              destModel: DestModel(
-                  x: pieceModel.x! + kSQUARE_LENGTH,
-                  y: pieceModel.y! + kSQUARE_LENGTH),
-              pieceModel: pieceModel),
-        //
-        if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                    pieceModel.y! + kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                        pieceModel.y! + kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-              destModel: DestModel(
-                  x: pieceModel.x! - kSQUARE_LENGTH,
-                  y: pieceModel.y! + kSQUARE_LENGTH),
-              pieceModel: pieceModel),
-        //
-        if (isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                    pieceModel.y! - kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x! + kSQUARE_LENGTH,
-                        pieceModel.y! - kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-              destModel: DestModel(
-                  x: pieceModel.x! + kSQUARE_LENGTH,
-                  y: pieceModel.y! - kSQUARE_LENGTH),
-              pieceModel: pieceModel),
-        //
-        if (isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                    pieceModel.y! - kSQUARE_LENGTH) ==
-                null ||
-            isPieceFound(pieceModel.x! - kSQUARE_LENGTH,
-                        pieceModel.y! - kSQUARE_LENGTH)!
-                    .pieceColor !=
-                pieceModel.pieceColor)
-          DestWidget(
-              destModel: DestModel(
-                  x: pieceModel.x! - kSQUARE_LENGTH,
-                  y: pieceModel.y! - kSQUARE_LENGTH),
-              pieceModel: pieceModel),
+        for (int i = 0; i < moveKing(pieceModel).length; i++) ...[
+          moveKing(pieceModel)[i],
+        ],
       ],
     );
   }
+}
+
+List<Widget> moveKing(PieceModel pieceModel) {
+  List<Widget> myDestWidgets = [];
+  DestWidget? destWidget;
+
+  List<DestModel> myListModels = [];
+  List<DestModel> rookMoves = getRookDest(pieceModel);
+  List<DestModel> bishopMoves = getBishopDest(pieceModel);
+
+  for (int i = 0; i < rookMoves.length; i++) {
+    myListModels.add(rookMoves[i]);
+  }
+  for (int i = 0; i < bishopMoves.length; i++) {
+    myListModels.add(bishopMoves[i]);
+  }
+
+  for (int i = 0; i < myListModels.length; i++) {
+    destWidget = DestWidget(
+      destModel: myListModels[i],
+      pieceModel: pieceModel,
+    );
+    myDestWidgets.add(destWidget);
+  }
+  return myDestWidgets;
 }

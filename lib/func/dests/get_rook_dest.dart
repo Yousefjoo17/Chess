@@ -2,14 +2,20 @@ import 'package:chess/constants.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
+import 'package:chess/models/PieceType.dart';
 
 List<DestModel> getRookDest(PieceModel pieceModel) {
   List<DestModel> myDestsModels = [];
   DestModel destModel;
   PieceModel? foundPieceModel;
-
+  int n;
+  if (pieceModel.pieceName == PieceName.king) {
+    n = 2;
+  } else {
+    n = 8;
+  }
   //right
-  for (int i = 1; i < 8; i++) {
+  for (int i = 1; i < n; i++) {
     foundPieceModel =
         isPieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
@@ -29,7 +35,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
     }
   }
   //down
-  for (int i = 1; i < 8; i++) {
+  for (int i = 1; i < n; i++) {
     foundPieceModel =
         isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
     destModel = DestModel(
@@ -50,7 +56,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   }
 
 //left
-  for (int i = 1; i < 8; i++) {
+  for (int i = 1; i < n; i++) {
     foundPieceModel =
         isPieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
@@ -70,7 +76,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
     }
   }
   //up
-  for (int i = 1; i < 8; i++) {
+  for (int i = 1; i < n; i++) {
     foundPieceModel =
         isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
     destModel = DestModel(
