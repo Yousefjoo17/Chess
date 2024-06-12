@@ -1,5 +1,4 @@
-import 'package:chess/constants.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/dests/get_rook_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/widgets/Pieces_Destinations_widgets/DestWidget.dart';
@@ -13,147 +12,26 @@ class RookDest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        //right
-        for (int i = 0; i < moveRookRight(pieceModel).length; i++) ...[
-          moveRookRight(pieceModel)[i],
-        ],
-        //down
-        for (int i = 0; i < moveRookDown(pieceModel).length; i++) ...[
-          moveRookDown(pieceModel)[i],
-        ],
-        //left
-        for (int i = 0; i < moveRookLeft(pieceModel).length; i++) ...[
-          moveRookLeft(pieceModel)[i],
-        ],
-        //up
-        for (int i = 0; i < moveRookUp(pieceModel).length; i++) ...[
-          moveRookUp(pieceModel)[i],
+        for (int i = 0; i < moveRook(pieceModel).length; i++) ...[
+          moveRook(pieceModel)[i],
         ],
       ],
     );
   }
 }
 
-/***********************right**********************/
-List<Widget> moveRookRight(PieceModel pieceModel) {
-  List<Widget> myDest = [];
-  PieceModel? foundPieceModel;
+List<Widget> moveRook(PieceModel pieceModel) {
+  List<Widget> myDestWidgets = [];
   DestWidget? destWidget;
 
-  for (int i = 1; i < 8; i++) {
-    foundPieceModel =
-        isPieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
+  List<DestModel> myListModels = getRookDest(pieceModel);
+
+  for (int i = 0; i < myListModels.length; i++) {
     destWidget = DestWidget(
-      destModel: DestModel(
-        x: pieceModel.x! + kSQUARE_LENGTH * i,
-        y: pieceModel.y,
-      ),
+      destModel: myListModels[i],
       pieceModel: pieceModel,
     );
-
-    if (foundPieceModel == null) {
-      myDest.add(destWidget);
-    } else {
-      if (foundPieceModel.pieceColor == pieceModel.pieceColor) {
-        break;
-      } else {
-        myDest.add(destWidget);
-        break;
-      }
-    }
+    myDestWidgets.add(destWidget);
   }
-  return myDest;
-}
-
-/************************down*******************/
-List<Widget> moveRookDown(PieceModel pieceModel) {
-  List<Widget> myDest = [];
-  PieceModel? foundPieceModel;
-  DestWidget? destWidget;
-
-  for (int i = 1; i < 8; i++) {
-    foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
-    destWidget = DestWidget(
-      destModel: DestModel(
-        x: pieceModel.x,
-        y: pieceModel.y! + kSQUARE_LENGTH * i,
-      ),
-      pieceModel: pieceModel,
-    );
-
-    if (foundPieceModel == null) {
-      myDest.add(destWidget);
-    } else {
-      if (foundPieceModel.pieceColor == pieceModel.pieceColor) {
-        break;
-      } else {
-        myDest.add(destWidget);
-        break;
-      }
-    }
-  }
-  return myDest;
-}
-
-/************************left*******************/
-List<Widget> moveRookLeft(PieceModel pieceModel) {
-  List<Widget> myDest = [];
-  PieceModel? foundPieceModel;
-  DestWidget? destWidget;
-
-  for (int i = 1; i < 8; i++) {
-    foundPieceModel =
-        isPieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
-    destWidget = DestWidget(
-      destModel: DestModel(
-        x: pieceModel.x! - kSQUARE_LENGTH * i,
-        y: pieceModel.y!,
-      ),
-      pieceModel: pieceModel,
-    );
-
-    if (foundPieceModel == null) {
-      myDest.add(destWidget);
-    } else {
-      if (foundPieceModel.pieceColor == pieceModel.pieceColor) {
-        break;
-      } else {
-        myDest.add(destWidget);
-        break;
-      }
-    }
-  }
-  return myDest;
-}
-
-/************************up*******************/
-List<Widget> moveRookUp(PieceModel pieceModel) {
-  List<Widget> myDest = [];
-  PieceModel? foundPieceModel;
-  DestWidget? destWidget;
-
-  for (int i = 1; i < 8; i++) {
-    foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
-    destWidget = DestWidget(
-      destModel: DestModel(
-        x: pieceModel.x!,
-        y: pieceModel.y! - kSQUARE_LENGTH * i,
-      ),
-      pieceModel: pieceModel,
-    );
-
-    if (foundPieceModel == null) {
-      myDest.add(destWidget);
-    } else {
-      if (foundPieceModel.pieceColor == pieceModel.pieceColor) {
-        break;
-      } else {
-        myDest.add(destWidget);
-        break;
-      }
-    }
-  }
-  return myDest;
+  return myDestWidgets;
 }

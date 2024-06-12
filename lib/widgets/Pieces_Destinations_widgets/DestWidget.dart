@@ -22,13 +22,15 @@ class DestWidget extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
+              //move piece
               BlocProvider.of<ManagerCubit>(context)
                   .movePiece(pieceModel, destModel.x!, destModel.y!);
-              //for panws only
+              //for panws only (prmototion) :
               if (pieceModel.pieceName == PieceName.pawn &&
                   (destModel.y == 0 || destModel.y == 7 * kSQUARE_LENGTH)) {
                 pawnWantToPromotre = pieceModel;
                 BlocProvider.of<ManagerCubit>(context).offerPromotion();
+                //
               }
             },
             child: Container(

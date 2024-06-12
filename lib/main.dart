@@ -1,4 +1,5 @@
 import 'package:chess/func/initialize_Pieces.dart';
+import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:chess/views/MainView.dart';
@@ -9,7 +10,12 @@ int pieceID = 0; // automatic Id of the piececs
 Map<int, PieceModel> piecesInfo = {};
 // any update of any piece must be documented here
 PieceModel? selectedPiece; //the selected id
-PieceModel? pawnWantToPromotre;
+PieceModel? pawnWantToPromotre; //pawn in the last row
+List<DestModel> allPiecesDest = [];
+// all destinations positions to decide if the king is safe
+bool isWKingInThreat = false;
+bool isBKingInThreat = false;
+bool fillAllPiecesDest = false;
 void main() {
   initializePieces();
   runApp(const Chess());

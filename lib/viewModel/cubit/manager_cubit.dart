@@ -32,7 +32,6 @@ class ManagerCubit extends Cubit<ManagerState> {
     pieceModel.movedBefore = true;
     piecesInfo[pieceModel.id]!.x = x;
     piecesInfo[pieceModel.id]!.y = y;
-
     if (foundPieceModel != null) {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
