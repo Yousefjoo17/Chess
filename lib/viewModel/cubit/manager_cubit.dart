@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:chess/func/dests/is_king_threatend.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
+import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
 import 'package:meta/meta.dart';
@@ -34,6 +36,12 @@ class ManagerCubit extends Cubit<ManagerState> {
     piecesInfo[pieceModel.id]!.y = y;
     if (foundPieceModel != null) {
       piecesInfo[foundPieceModel.id]!.live = false;
+    }
+    if (isKingThreatend(PieceColor.white)) {
+      print("White king is threatend");
+    }
+    if (isKingThreatend(PieceColor.black)) {
+      print("black king is threatend");
     }
     emit(ManagerReBuildPieces());
   }
