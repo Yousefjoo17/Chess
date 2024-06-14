@@ -9,33 +9,31 @@ List<DestModel> getPawnDest(PieceModel pieceModel) {
   PieceModel? foundPieceModel;
 
   if (pieceModel.pieceColor == PieceColor.white) {
-    foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH);
+    foundPieceModel = PieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH);
     if (foundPieceModel == null) {
       myDestsModels
           .add(DestModel(x: pieceModel.x, y: pieceModel.y! - kSQUARE_LENGTH));
     }
     if (!pieceModel.movedBefore!) {
       foundPieceModel =
-          isPieceFound(pieceModel.x!, pieceModel.y! - 2 * kSQUARE_LENGTH);
+          PieceFound(pieceModel.x!, pieceModel.y! - 2 * kSQUARE_LENGTH);
       if (foundPieceModel == null &&
-          isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH) == null) {
+          PieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH) == null) {
         myDestsModels.add(
             DestModel(x: pieceModel.x, y: pieceModel.y! - 2 * kSQUARE_LENGTH));
       }
     }
   } else {
-    foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH);
+    foundPieceModel = PieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH);
     if (foundPieceModel == null) {
       myDestsModels
           .add(DestModel(x: pieceModel.x, y: pieceModel.y! + kSQUARE_LENGTH));
     }
     if (!pieceModel.movedBefore!) {
       foundPieceModel =
-          isPieceFound(pieceModel.x!, pieceModel.y! + 2 * kSQUARE_LENGTH);
+          PieceFound(pieceModel.x!, pieceModel.y! + 2 * kSQUARE_LENGTH);
       if (foundPieceModel == null &&
-          isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH) == null) {
+          PieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH) == null) {
         myDestsModels.add(
             DestModel(x: pieceModel.x, y: pieceModel.y! + 2 * kSQUARE_LENGTH));
       }
@@ -43,7 +41,7 @@ List<DestModel> getPawnDest(PieceModel pieceModel) {
   }
 
   if (pieceModel.pieceColor == PieceColor.white) {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! - kSQUARE_LENGTH, pieceModel.y! - kSQUARE_LENGTH);
     if (foundPieceModel != null &&
         foundPieceModel.pieceColor == PieceColor.black) {
@@ -51,7 +49,7 @@ List<DestModel> getPawnDest(PieceModel pieceModel) {
           x: pieceModel.x! - kSQUARE_LENGTH,
           y: pieceModel.y! - kSQUARE_LENGTH));
     }
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! + kSQUARE_LENGTH, pieceModel.y! - kSQUARE_LENGTH);
     if (foundPieceModel != null &&
         foundPieceModel.pieceColor == PieceColor.black) {
@@ -60,7 +58,7 @@ List<DestModel> getPawnDest(PieceModel pieceModel) {
           y: pieceModel.y! - kSQUARE_LENGTH));
     }
   } else {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! - kSQUARE_LENGTH, pieceModel.y! + kSQUARE_LENGTH);
     if (foundPieceModel != null &&
         foundPieceModel.pieceColor == PieceColor.white) {
@@ -68,7 +66,7 @@ List<DestModel> getPawnDest(PieceModel pieceModel) {
           x: pieceModel.x! - kSQUARE_LENGTH,
           y: pieceModel.y! + kSQUARE_LENGTH));
     }
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! + kSQUARE_LENGTH, pieceModel.y! + kSQUARE_LENGTH);
     if (foundPieceModel != null &&
         foundPieceModel.pieceColor == PieceColor.white) {

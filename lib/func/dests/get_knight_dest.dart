@@ -19,7 +19,7 @@ List<DestModel> getKnightDest(PieceModel pieceModel) {
   for (List<int> move in moves) {
     double newX = pieceModel.x! + move[0] * kSQUARE_LENGTH;
     double newY = pieceModel.y! + move[1] * kSQUARE_LENGTH;
-    PieceModel? foundPieceModel = isPieceFound(newX, newY);
+    PieceModel? foundPieceModel = PieceFound(newX, newY);
 
     DestModel destModel = DestModel(
       x: newX,

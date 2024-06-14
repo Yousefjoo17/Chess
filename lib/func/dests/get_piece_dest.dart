@@ -39,6 +39,5 @@ List<DestModel> getPieceDest(PieceModel pieceModel) {
       break;
     default:
   }
-
   return dests;
 }

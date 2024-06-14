@@ -28,7 +28,7 @@ class ManagerCubit extends Cubit<ManagerState> {
 
   void movePiece(PieceModel pieceModel, double x, double y) {
     PieceModel? foundPieceModel;
-    foundPieceModel = isPieceFound(x, y);
+    foundPieceModel = PieceFound(x, y);
     piecesInfo[pieceModel.id]!.selected = false;
     selectedPiece = null;
     pieceModel.movedBefore = true;
@@ -37,12 +37,8 @@ class ManagerCubit extends Cubit<ManagerState> {
     if (foundPieceModel != null) {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
-    if (isKingThreatend(PieceColor.white)) {
-      print("White king is threatend");
-    }
-    if (isKingThreatend(PieceColor.black)) {
-      print("black king is threatend");
-    }
+    isWKingInThreat = isKingThreatend(PieceColor.white);
+    isBKingInThreat = isKingThreatend(PieceColor.black);
     emit(ManagerReBuildPieces());
   }
 

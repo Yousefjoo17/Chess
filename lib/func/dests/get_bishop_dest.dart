@@ -16,7 +16,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //right down
   for (int i = 1; i < n; i++) {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y! + i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! + i * kSQUARE_LENGTH,
@@ -36,7 +36,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //left down
   for (int i = 1; i < n; i++) {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y! + i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! - i * kSQUARE_LENGTH,
@@ -57,7 +57,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
 
 //Right up
   for (int i = 1; i < n; i++) {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y! - i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! + i * kSQUARE_LENGTH,
@@ -77,7 +77,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //left up
   for (int i = 1; i < n; i++) {
-    foundPieceModel = isPieceFound(
+    foundPieceModel = PieceFound(
         pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y! - i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! - i * kSQUARE_LENGTH,

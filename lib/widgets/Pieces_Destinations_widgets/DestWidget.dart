@@ -1,3 +1,4 @@
+import 'package:chess/func/dests/can_move_and_save_king.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceType.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
@@ -15,38 +16,53 @@ class DestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: destModel.x!,
-      top: destModel.y!,
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: () {
-              //move piece
-              BlocProvider.of<ManagerCubit>(context)
-                  .movePiece(pieceModel, destModel.x!, destModel.y!);
-              //for panws only (prmototion) :
-              if (pieceModel.pieceName == PieceName.pawn &&
-                  (destModel.y == 0 || destModel.y == 7 * kSQUARE_LENGTH)) {
-                pawnWantToPromotre = pieceModel;
-                BlocProvider.of<ManagerCubit>(context).offerPromotion();
-                //
-              }
-            },
-            child: Container(
+    print("can move?");
+    print(destModel.x);
+    print(destModel.y);
+    print(canMoveAndSaveKing(pieceModel, destModel));
+    print(pieceModel.pieceName);
+    return canMoveAndSaveKing(pieceModel, destModel)
+        ? Positioned(
+            left: destModel.x!,
+            top: destModel.y!,
+            child: Stack(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    //move piece
+                    BlocProvider.of<ManagerCubit>(context)
+                        .movePiece(pieceModel, destModel.x!, destModel.y!);
+                    //for panws only (prmototion) :
+                    if (pieceModel.pieceName == PieceName.pawn &&
+                        (destModel.y == 0 ||
+                            destModel.y == 7 * kSQUARE_LENGTH)) {
+                      pawnWantToPromotre = pieceModel;
+                      BlocProvider.of<ManagerCubit>(context).offerPromotion();
+                      //
+                    }
+                  },
+                  child: Container(
+                    width: kSQUARE_LENGTH,
+                    height: kSQUARE_LENGTH,
+                    color: Colors.transparent,
+                    child: const Center(
+                      child: CircleAvatar(
+                        radius: 6,
+                        backgroundColor: Colors.green,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        : Positioned(
+            left: destModel.x!,
+            top: destModel.y!,
+            child: const SizedBox(
               width: kSQUARE_LENGTH,
               height: kSQUARE_LENGTH,
-              color: Colors.transparent,
-              child: const Center(
-                child: CircleAvatar(
-                  radius: 6,
-                  backgroundColor: Colors.green,
-                ),
-              ),
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

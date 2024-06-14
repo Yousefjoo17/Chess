@@ -17,7 +17,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //right
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        isPieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
+        PieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
       x: pieceModel.x! + kSQUARE_LENGTH * i,
       y: pieceModel.y,
@@ -37,7 +37,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //down
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
+        PieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
     destModel = DestModel(
       x: pieceModel.x!,
       y: pieceModel.y! + kSQUARE_LENGTH * i,
@@ -58,7 +58,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
 //left
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        isPieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
+        PieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
       x: pieceModel.x! - kSQUARE_LENGTH * i,
       y: pieceModel.y!,
@@ -78,7 +78,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //up
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        isPieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
+        PieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
     destModel = DestModel(
       x: pieceModel.x!,
       y: pieceModel.y! - kSQUARE_LENGTH * i,

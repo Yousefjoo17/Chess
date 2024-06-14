@@ -11,7 +11,7 @@ bool isKingThreatend(PieceColor pieceColor) {
     //need save white king
     dests = getAllSidePiecesDest(PieceColor.black);
     for (var element in dests) {
-      if (pieceKing.x == element.x && pieceKing.y == element.y) {
+      if ( pieceKing.x == element.x && pieceKing.y == element.y) {
         return true;
       }
     }
@@ -20,6 +20,7 @@ bool isKingThreatend(PieceColor pieceColor) {
     dests = getAllSidePiecesDest(PieceColor.white);
     for (var element in dests) {
       if (pieceKing.x == element.x && pieceKing.y == element.y) {
+        
         return true;
       }
     }

@@ -10,7 +10,8 @@ List<DestModel> getAllSidePiecesDest(PieceColor pieceColor) {
   for (var i = 0; i < piecesInfo.length; i++) {
     //get white pieces dest
     if (pieceColor == PieceColor.white) {
-      if (piecesInfo[i]!.pieceColor == PieceColor.white) {
+      if (piecesInfo[i]!.live! &&
+          piecesInfo[i]!.pieceColor == PieceColor.white) {
         temp = getPieceDest(piecesInfo[i]!);
         for (var element in temp) {
           dest.add(element);
@@ -19,7 +20,8 @@ List<DestModel> getAllSidePiecesDest(PieceColor pieceColor) {
     }
     //get black pieces dest
     else {
-      if (piecesInfo[i]!.pieceColor == PieceColor.black) {
+      if (piecesInfo[i]!.live! &&
+          piecesInfo[i]!.pieceColor == PieceColor.black) {
         temp = getPieceDest(piecesInfo[i]!);
         for (var element in temp) {
           dest.add(element);
