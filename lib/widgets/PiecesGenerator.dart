@@ -1,7 +1,7 @@
 import 'package:chess/main.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
-import 'package:chess/widgets/Pieces_Destinations_widgets/GenerateDestWidgets.dart';
 import 'package:chess/widgets/PieceWidget.dart';
+import 'package:chess/widgets/PieceDestWidget.dart';
 import 'package:chess/widgets/promotion_widgets/PromotionWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
@@ -29,7 +29,7 @@ class PiecesGenerator extends StatelessWidget {
             children: [
               ...generatePieces(),
               if (selectedPiece != null)
-                DestGeneratorWidget(pieceModel: selectedPiece!),
+                PieceDestWidget(pieceModel: selectedPiece!),
               if (pawnWantToPromotre != null)
                 PromotionWidget(pawn: pawnWantToPromotre!),
             ],

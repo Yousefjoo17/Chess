@@ -13,8 +13,6 @@ PieceModel? selectedPiece; //the selected id
 PieceModel? pawnWantToPromotre; //pawn in the last row
 List<DestModel> allPiecesDest = [];
 // all destinations positions to decide if the king is safe
-bool isWKingInThreat = false;
-bool isBKingInThreat = false;
 bool fillAllPiecesDest = false;
 void main() {
   initializePieces();

@@ -1,30 +1,29 @@
-import 'package:chess/func/dests/get_pawn_dest.dart';
+import 'package:chess/func/dests/get_piece_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
-import 'package:chess/widgets/Pieces_Destinations_widgets/DestWidget.dart';
+import 'package:chess/widgets/DestWidget.dart';
 import 'package:flutter/material.dart';
 
-class PawnDest extends StatelessWidget {
-  const PawnDest({super.key, required this.pieceModel});
+class PieceDestWidget extends StatelessWidget {
+  const PieceDestWidget({super.key, required this.pieceModel});
   final PieceModel pieceModel;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> dests = movePiece(pieceModel);
     return Stack(
       children: [
-        for (int i = 0; i < movePawn(pieceModel).length; i++) ...[
-          movePawn(pieceModel)[i],
-        ],
+        for (int i = 0; i < dests.length; i++) ...[dests[i]]
       ],
     );
   }
 }
 
-List<Widget> movePawn(PieceModel pieceModel) {
+List<Widget> movePiece(PieceModel pieceModel) {
   List<Widget> myDestWidgets = [];
   DestWidget? destWidget;
 
-  List<DestModel> myListModels = getPawnDest(pieceModel);
+  List<DestModel> myListModels = getPieceDest(pieceModel);
 
   for (int i = 0; i < myListModels.length; i++) {
     destWidget = DestWidget(

@@ -16,11 +16,6 @@ class DestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("can move?");
-    print(destModel.x);
-    print(destModel.y);
-    print(canMoveAndSaveKing(pieceModel, destModel));
-    print(pieceModel.pieceName);
     return canMoveAndSaveKing(pieceModel, destModel)
         ? Positioned(
             left: destModel.x!,
@@ -56,7 +51,7 @@ class DestWidget extends StatelessWidget {
               ],
             ),
           )
-        : Positioned(
+        : Positioned( // I should have added positiond from the beginnings 
             left: destModel.x!,
             top: destModel.y!,
             child: const SizedBox(
