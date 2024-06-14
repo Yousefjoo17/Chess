@@ -15,8 +15,9 @@ List<DestModel> allPiecesDest = [];
 // all destinations positions to decide if the king is safe
 bool fillAllPiecesDest = false;
 
-bool wWin = false;
+bool wWin = true;
 bool bWin = false;
+bool gameEnded = true;
 
 void main() {
   initializePieces();
