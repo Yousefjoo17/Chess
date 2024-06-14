@@ -1,4 +1,4 @@
-import 'package:chess/func/dests/can_move_and_save_king.dart';
+import 'package:chess/func/can_move_and_save_king.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceType.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';

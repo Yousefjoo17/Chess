@@ -14,6 +14,10 @@ PieceModel? pawnWantToPromotre; //pawn in the last row
 List<DestModel> allPiecesDest = [];
 // all destinations positions to decide if the king is safe
 bool fillAllPiecesDest = false;
+
+bool wWin = false;
+bool bWin = false;
+
 void main() {
   initializePieces();
   runApp(const Chess());

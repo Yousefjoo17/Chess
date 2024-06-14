@@ -1,4 +1,4 @@
-import 'package:chess/func/dests/is_king_threatend.dart';
+import 'package:chess/func/is_king_threatend.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/DestModel.dart';

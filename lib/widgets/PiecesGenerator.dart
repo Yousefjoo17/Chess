@@ -29,7 +29,7 @@ class PiecesGenerator extends StatelessWidget {
             children: [
               ...generatePieces(),
               if (selectedPiece != null)
-                PieceDestWidget(pieceModel: selectedPiece!),
+                PieceDestWidgets(pieceModel: selectedPiece!),
               if (pawnWantToPromotre != null)
                 PromotionWidget(pawn: pawnWantToPromotre!),
             ],

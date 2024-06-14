@@ -1,11 +1,11 @@
-import 'package:chess/func/dests/get_piece_dest.dart';
+import 'package:chess/func/get_piece_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/widgets/DestWidget.dart';
 import 'package:flutter/material.dart';
 
-class PieceDestWidget extends StatelessWidget {
-  const PieceDestWidget({super.key, required this.pieceModel});
+class PieceDestWidgets extends StatelessWidget {
+  const PieceDestWidgets({super.key, required this.pieceModel});
   final PieceModel pieceModel;
 
   @override

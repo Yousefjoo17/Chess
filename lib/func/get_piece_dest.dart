@@ -1,7 +1,7 @@
-import 'package:chess/func/dests/get_bishop_dest.dart';
-import 'package:chess/func/dests/get_knight_dest.dart';
-import 'package:chess/func/dests/get_pawn_dest.dart';
-import 'package:chess/func/dests/get_rook_dest.dart';
+import 'package:chess/func/get_bishop_dest.dart';
+import 'package:chess/func/get_knight_dest.dart';
+import 'package:chess/func/get_pawn_dest.dart';
+import 'package:chess/func/get_rook_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';

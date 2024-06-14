@@ -1,5 +1,5 @@
-import 'package:chess/func/dests/get_all_side_pieces_dest.dart';
-import 'package:chess/func/dests/get_king.dart';
+import 'package:chess/func/get_all_side_pieces_dest.dart';
+import 'package:chess/func/get_king.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
