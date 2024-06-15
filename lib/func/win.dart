@@ -5,25 +5,21 @@ import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceColor.dart';
 
 bool whiteWin() {
-  // wWin = true;
   List<DestModel> pieceDest = [];
   for (var i = 0; i < piecesInfo.length; i++) {
     if (piecesInfo[i]!.live! && piecesInfo[i]!.pieceColor == PieceColor.black) {
       pieceDest = getPieceDest(piecesInfo[i]!);
       for (var dest in pieceDest) {
-        print(
-            'can move ${piecesInfo[i]!.pieceName} to ${dest.x} , ${dest.y} :::${canMoveAndSaveKing(piecesInfo[i]!, dest)}');
         if (canMoveAndSaveKing(piecesInfo[i]!, dest)) {
           return false;
         }
       }
     }
   }
-  return true;
+  return wWin = true;
 }
 
 bool blackWin() {
-  //bWin = true;
   List<DestModel> pieceDest = [];
   for (var i = 0; i < piecesInfo.length; i++) {
     if (piecesInfo[i]!.live! && piecesInfo[i]!.pieceColor == PieceColor.white) {
@@ -35,5 +31,5 @@ bool blackWin() {
       }
     }
   }
-  return true;
+  return bWin = true;
 }

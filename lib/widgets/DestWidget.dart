@@ -33,8 +33,6 @@ class DestWidget extends StatelessWidget {
                             destModel.y == 7 * kSQUARE_LENGTH)) {
                       pawnWantToPromotre = pieceModel;
                       BlocProvider.of<ManagerCubit>(context).offerPromotion();
-                      //we may have a winner
-                      //BlocProvider.of<ManagerCubit>(context).checkWinner();
                     }
                   },
                   child: Container(

@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
-import 'package:chess/func/win.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
@@ -64,10 +63,4 @@ class ManagerCubit extends Cubit<ManagerState> {
     emit(ManagerReBuildPieces());
   }
 
-  void checkWinner() {
-    wWin = whiteWin();
-    bWin = blackWin();
-    print(wWin);
-    emit(ManagerReBuildPieces());
-  }
 }
