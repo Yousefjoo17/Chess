@@ -1,5 +1,6 @@
 import 'package:chess/constants.dart';
 import 'package:chess/main.dart';
+import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,12 @@ class PieceWidget extends StatelessWidget {
               ? GestureDetector(
                   onTap: () {
                     if (!wWin && !bWin) {
-                      BlocProvider.of<ManagerCubit>(context)
-                          .selectPiece(pieceModel);
+                      if ((wTurn &&
+                              pieceModel.pieceColor == PieceColor.white) ||
+                          !wTurn && pieceModel.pieceColor == PieceColor.black) {
+                        BlocProvider.of<ManagerCubit>(context)
+                            .selectPiece(pieceModel);
+                      }
                     }
                   },
                   child: pieceModel.selected!

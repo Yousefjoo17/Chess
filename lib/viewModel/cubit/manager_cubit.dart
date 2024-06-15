@@ -36,6 +36,7 @@ class ManagerCubit extends Cubit<ManagerState> {
     if (foundPieceModel != null) {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
+    wTurn = !wTurn;
     emit(ManagerReBuildPieces());
   }
 
@@ -59,8 +60,8 @@ class ManagerCubit extends Cubit<ManagerState> {
     fillAllPiecesDest = false;
     wWin = false;
     bWin = false;
+    wTurn = true;
     initializePieces();
     emit(ManagerReBuildPieces());
   }
-
 }

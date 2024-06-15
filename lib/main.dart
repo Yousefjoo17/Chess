@@ -18,6 +18,7 @@ bool fillAllPiecesDest = false;
 bool wWin = false;
 bool bWin = false;
 
+bool wTurn = true;
 void main() {
   initializePieces();
   runApp(const Chess());
