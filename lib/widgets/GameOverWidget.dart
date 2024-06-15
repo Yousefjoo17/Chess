@@ -34,7 +34,7 @@ Widget getWinner() {
       child: Text(
         "White win",
         style: TextStyle(
-          fontSize: 48,
+          fontSize: kSQUARE_LENGTH * 0.8,
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
@@ -46,7 +46,7 @@ Widget getWinner() {
       child: Text(
         "Black win",
         style: TextStyle(
-          fontSize: 48,
+          fontSize: kSQUARE_LENGTH * 0.8,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
