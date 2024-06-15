@@ -1,3 +1,4 @@
+import 'package:chess/func/win.dart';
 import 'package:chess/main.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:chess/widgets/GameOverWidget.dart';
@@ -33,7 +34,7 @@ class PiecesGenerator extends StatelessWidget {
                 PieceDestWidgets(pieceModel: selectedPiece!),
               if (pawnWantToPromotre != null)
                 PromotionWidget(pawn: pawnWantToPromotre!),
-              if (gameEnded) const GameOverWidget(),
+              if (whiteWin() || blackWin()) const GameOverWidget(),
             ],
           );
         },

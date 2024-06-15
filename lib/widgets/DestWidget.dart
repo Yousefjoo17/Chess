@@ -33,7 +33,8 @@ class DestWidget extends StatelessWidget {
                             destModel.y == 7 * kSQUARE_LENGTH)) {
                       pawnWantToPromotre = pieceModel;
                       BlocProvider.of<ManagerCubit>(context).offerPromotion();
-                      //
+                      //we may have a winner
+                      //BlocProvider.of<ManagerCubit>(context).checkWinner();
                     }
                   },
                   child: Container(
@@ -51,7 +52,8 @@ class DestWidget extends StatelessWidget {
               ],
             ),
           )
-        : Positioned( // I should have added positiond from the beginnings 
+        : Positioned(
+            // I should have added positiond from the beginnings
             left: destModel.x!,
             top: destModel.y!,
             child: const SizedBox(

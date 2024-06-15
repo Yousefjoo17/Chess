@@ -17,7 +17,6 @@ bool fillAllPiecesDest = false;
 
 bool wWin = true;
 bool bWin = false;
-bool gameEnded = true;
 
 void main() {
   initializePieces();

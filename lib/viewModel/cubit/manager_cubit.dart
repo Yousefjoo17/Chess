@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/win.dart';
 import 'package:chess/main.dart';
-import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
 import 'package:meta/meta.dart';
@@ -60,20 +60,14 @@ class ManagerCubit extends Cubit<ManagerState> {
     fillAllPiecesDest = false;
     wWin = false;
     bWin = false;
-    gameEnded = false;
     initializePieces();
     emit(ManagerReBuildPieces());
   }
 
-  void weHaveWinner(PieceColor pieceColor) {
-    if (pieceColor == PieceColor.white) {
-      //white win
-      wWin = true;
-    } else {
-      //black win
-      bWin = true;
-    }
-    gameEnded = true;
+  void checkWinner() {
+    wWin = whiteWin();
+    bWin = blackWin();
+    print(wWin);
     emit(ManagerReBuildPieces());
   }
 }

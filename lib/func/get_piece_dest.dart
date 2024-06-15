@@ -1,3 +1,4 @@
+import 'package:chess/constants.dart';
 import 'package:chess/func/get_bishop_dest.dart';
 import 'package:chess/func/get_knight_dest.dart';
 import 'package:chess/func/get_pawn_dest.dart';
@@ -39,5 +40,14 @@ List<DestModel> getPieceDest(PieceModel pieceModel) {
       break;
     default:
   }
+
+  List<DestModel> elementsToRemove = [];
+  for (var element in dests) {
+    if (element.x! < 0 || element.x! >= kBOARD_LENGTH || element.y! < 0 || element.y! >= kBOARD_LENGTH) {
+      elementsToRemove.add(element);
+    }
+  }
+  
+  dests.removeWhere((element) => elementsToRemove.contains(element));
   return dests;
 }
