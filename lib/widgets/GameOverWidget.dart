@@ -1,9 +1,7 @@
 import 'package:chess/constants.dart';
-import 'package:chess/core/widgets/custom_button.dart';
 import 'package:chess/main.dart';
-import 'package:chess/viewModel/cubit/manager_cubit.dart';
+import 'package:chess/widgets/RetryButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GameOverWidget extends StatelessWidget {
   const GameOverWidget({super.key});
@@ -20,15 +18,7 @@ class GameOverWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             getWinner(),
-            SizedBox(
-                width: 3 * kSQUARE_LENGTH,
-                height: 0.6 * kSQUARE_LENGTH,
-                child: CustomButton(
-                    text: "Retry",
-                    ontap: () {
-                      BlocProvider.of<ManagerCubit>(context).retry();
-                    },
-                    color: const Color.fromARGB(255, 138, 252, 195)))
+            const RetryButton(),
           ],
         ),
       ),

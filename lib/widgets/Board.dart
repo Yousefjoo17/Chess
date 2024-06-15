@@ -2,6 +2,7 @@ import 'package:chess/constants.dart';
 import 'package:chess/core/AssetsData.dart';
 import 'package:chess/widgets/PiecesGenerator.dart';
 import 'package:chess/widgets/PlayerWidget.dart';
+import 'package:chess/widgets/RetryButton.dart';
 import 'package:flutter/material.dart';
 
 class Board extends StatelessWidget {
@@ -60,6 +61,7 @@ class Board extends StatelessWidget {
           image: AssetsData.player1,
           color: Color.fromARGB(255, 191, 225, 241),
         ),
+        const RetryButton(),
       ],
     );
   }

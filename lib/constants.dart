@@ -1,4 +1,2 @@
-const double kSQUARE_LENGTH = 60;
-const double kBOARD_LENGTH = 60 * 8;
-const double kBOARD_START_X = 60;
-const double kBOARD_START_y = 60;
+const double kSQUARE_LENGTH = 55;
+const double kBOARD_LENGTH = 55 * 8;

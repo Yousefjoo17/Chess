@@ -41,8 +41,8 @@ class DestWidget extends StatelessWidget {
                     color: Colors.transparent,
                     child: const Center(
                       child: CircleAvatar(
-                        radius: 6,
-                        backgroundColor: Colors.green,
+                        radius: kSQUARE_LENGTH / 10,
+                        backgroundColor: Color.fromARGB(255, 193, 199, 193),
                       ),
                     ),
                   ),

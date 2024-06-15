@@ -34,7 +34,8 @@ class PieceWidget extends StatelessWidget {
                   },
                   child: pieceModel.selected!
                       ? Container(
-                          decoration: const BoxDecoration(color: Colors.green),
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 168, 158, 21)),
                           child: Image.asset(
                             pieceModel.image!,
                             width: kSQUARE_LENGTH,
