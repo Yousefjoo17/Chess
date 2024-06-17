@@ -1,6 +1,8 @@
+import 'package:chess/func/get_castling_dest.dart';
 import 'package:chess/func/get_piece_dest.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
+import 'package:chess/models/PieceType.dart';
 import 'package:chess/widgets/DestWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,14 @@ List<Widget> movePiece(PieceModel pieceModel) {
   DestWidget? destWidget;
 
   List<DestModel> myListModels = getPieceDest(pieceModel);
+
+  // special case for castling 
+  if (pieceModel.pieceName == PieceName.king) { 
+    List<DestModel> temp = getCastlingDest(pieceModel);
+    for (var elem in temp) {
+      myListModels.add(elem);
+    }
+  }
 
   for (int i = 0; i < myListModels.length; i++) {
     destWidget = DestWidget(
