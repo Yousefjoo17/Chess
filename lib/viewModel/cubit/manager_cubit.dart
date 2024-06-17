@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:chess/constants.dart';
 import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
@@ -26,6 +27,16 @@ class ManagerCubit extends Cubit<ManagerState> {
   }
 
   void movePiece(PieceModel pieceModel, double x, double y) {
+    // for castling
+    if (pieceModel.pieceName == PieceName.king) {
+      if (x == pieceModel.x! + 2 * kSQUARE_LENGTH) {
+        PieceModel rook = PieceFound(x + kSQUARE_LENGTH, y)!;
+        piecesInfo[rook.id]!.x = x - 1 * kSQUARE_LENGTH;
+      } else if (x == pieceModel.x! - 2 * kSQUARE_LENGTH) {
+        PieceModel rook = PieceFound(x - 2 * kSQUARE_LENGTH, y)!;
+        piecesInfo[rook.id]!.x = x + 1 * kSQUARE_LENGTH;
+      }
+    }
     PieceModel? foundPieceModel;
     foundPieceModel = PieceFound(x, y);
     piecesInfo[pieceModel.id]!.selected = false;
@@ -37,10 +48,12 @@ class ManagerCubit extends Cubit<ManagerState> {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
     wTurn = !wTurn;
-    emit(ManagerReBuildPieces());
-  }
+    //for panws only (prmototion) :
+    if (pieceModel.pieceName == PieceName.pawn &&
+        (y == 0 || y == 7 * kSQUARE_LENGTH)) {
+      pawnWantToPromotre = pieceModel;
+    }
 
-  void offerPromotion() {
     emit(ManagerReBuildPieces());
   }
 
