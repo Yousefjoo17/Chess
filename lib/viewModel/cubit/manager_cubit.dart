@@ -3,6 +3,7 @@ import 'package:chess/constants.dart';
 import 'package:chess/func/initialize_Pieces.dart';
 import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
+import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
 import 'package:meta/meta.dart';
@@ -37,6 +38,38 @@ class ManagerCubit extends Cubit<ManagerState> {
         piecesInfo[rook.id]!.x = x + 1 * kSQUARE_LENGTH;
       }
     }
+
+    if (pieceModel.pieceName == PieceName.pawn) {
+      if (pieceModel.pieceColor == PieceColor.white) {
+        PieceModel? foundPawn = PieceFound(x, y + kSQUARE_LENGTH);
+        if (foundPawn != null &&
+            foundPawn.pieceName == PieceName.pawn &&
+            foundPawn.pieceColor == PieceColor.black &&
+            foundPawn.justMoved2steps!) {
+          piecesInfo[foundPawn.id]!.live = false;
+        }
+      } else {
+        PieceModel? foundPawn = PieceFound(x, y - kSQUARE_LENGTH);
+        if (foundPawn != null &&
+            foundPawn.pieceName == PieceName.pawn &&
+            foundPawn.pieceColor == PieceColor.white &&
+            foundPawn.justMoved2steps!) {
+          piecesInfo[foundPawn.id]!.live = false;
+        }
+      }
+
+      for (var i = 0; i < piecesInfo.length; i++) {
+        piecesInfo[i]!.justMoved2steps = false;
+      }
+
+      //for Pawns en passant
+      if (y == pieceModel.y! + 2 * kSQUARE_LENGTH ||
+          y == pieceModel.y! - 2 * kSQUARE_LENGTH) {
+        piecesInfo[pieceModel.id]!.justMoved2steps = true;
+      }
+    }
+
+    /**********sperator*********/
     PieceModel? foundPieceModel;
     foundPieceModel = PieceFound(x, y);
     piecesInfo[pieceModel.id]!.selected = false;
@@ -48,6 +81,7 @@ class ManagerCubit extends Cubit<ManagerState> {
       piecesInfo[foundPieceModel.id]!.live = false;
     }
     wTurn = !wTurn;
+    /**********sperator*****************/
     //for panws only (prmototion) :
     if (pieceModel.pieceName == PieceName.pawn &&
         (y == 0 || y == 7 * kSQUARE_LENGTH)) {

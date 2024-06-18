@@ -45,30 +45,30 @@ void initliaePiecesOneSide(String color, double yOffset) {
   for (int i = 0; i < 8; i++) {
     // First row of pieces
     PieceModel mainPiece = PieceModel(
-      id: pieceID++,
-      x: i * kSQUARE_LENGTH.toDouble(),
-      y: yOffset,
-      image: pieceOrder[i],
-      movedBefore: false,
-      pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
-      pieceName: piecesNames[i],
-      live: true,
-      selected: false,
-    );
+        id: pieceID++,
+        x: i * kSQUARE_LENGTH.toDouble(),
+        y: yOffset,
+        image: pieceOrder[i],
+        movedBefore: false,
+        pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
+        pieceName: piecesNames[i],
+        live: true,
+        selected: false,
+        justMoved2steps: false);
     piecesInfo[mainPiece.id!] = mainPiece;
 
     // Pawns row
     PieceModel pawnPiece = PieceModel(
-      id: pieceID++,
-      x: i * kSQUARE_LENGTH.toDouble(),
-      y: color == "white" ? yOffset - kSQUARE_LENGTH : kSQUARE_LENGTH,
-      image: color == "white" ? AssetsData.whitePawn : AssetsData.blackPawn,
-      movedBefore: false,
-      pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
-      pieceName: PieceName.pawn,
-      live: true,
-      selected: false,
-    );
+        id: pieceID++,
+        x: i * kSQUARE_LENGTH.toDouble(),
+        y: color == "white" ? yOffset - kSQUARE_LENGTH : kSQUARE_LENGTH,
+        image: color == "white" ? AssetsData.whitePawn : AssetsData.blackPawn,
+        movedBefore: false,
+        pieceColor: color == "white" ? PieceColor.white : PieceColor.black,
+        pieceName: PieceName.pawn,
+        live: true,
+        selected: false,
+        justMoved2steps: false);
     piecesInfo[pawnPiece.id!] = pawnPiece;
   }
 }

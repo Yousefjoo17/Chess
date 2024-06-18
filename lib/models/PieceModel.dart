@@ -11,16 +11,18 @@ class PieceModel {
   PieceName? pieceName;
   bool? live;
   bool? selected;
+  bool? justMoved2steps;
 
   PieceModel({
-  required this.id,
-  required this.x,
-  required this.y,
-  required this.image,
-  required this.movedBefore,
-  required this.pieceColor,
-  required this.pieceName,
-  required this.live,
-  required this.selected,
+    required this.id,
+    required this.x,
+    required this.y,
+    required this.image,
+    required this.movedBefore,
+    required this.pieceColor,
+    required this.pieceName,
+    required this.live,
+    required this.selected,
+    required this.justMoved2steps, // for pawns
   });
 }
