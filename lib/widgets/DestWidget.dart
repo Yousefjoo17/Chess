@@ -1,4 +1,5 @@
 import 'package:chess/func/can_move_and_save_king.dart';
+import 'package:chess/func/is_white_sqaure.dart';
 import 'package:chess/models/EnPassenDestModel.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:flutter/material.dart';
@@ -64,17 +65,4 @@ class DestWidget extends StatelessWidget {
             ),
           );
   }
-}
-
-bool isWhiteSquare(DestModel destModel) {
-  if ((destModel.x! ~/ kSQUARE_LENGTH).toInt().isEven &&
-      (destModel.y! ~/ kSQUARE_LENGTH).toInt().isEven) {
-    return true;
-  }
-  if ((destModel.x! ~/ kSQUARE_LENGTH).toInt().isOdd &&
-      (destModel.y! ~/ kSQUARE_LENGTH).toInt().isOdd) {
-    return true;
-  }
-
-  return false;
 }
