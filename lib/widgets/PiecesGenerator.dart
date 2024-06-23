@@ -4,7 +4,7 @@ import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:chess/widgets/GameOverWidget.dart';
 import 'package:chess/widgets/PieceWidget.dart';
 import 'package:chess/widgets/PieceDestWidgets.dart';
-import 'package:chess/widgets/promotion_widgets/PromotionWidget.dart';
+import 'package:chess/widgets/PromotionWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,8 +23,8 @@ class PiecesGenerator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: kBOARD_LENGTH,
-      height: kBOARD_LENGTH,
+      width: kSQUARE_LENGTH*8,
+      height: kSQUARE_LENGTH*8,
       child: BlocBuilder<ManagerCubit, ManagerState>(
         builder: (context, state) {
           return Stack(

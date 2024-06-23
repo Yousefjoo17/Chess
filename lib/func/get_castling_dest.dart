@@ -1,7 +1,7 @@
 import 'package:chess/constants.dart';
 import 'package:chess/func/get_all_side_pieces_dest.dart';
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/func/is_king_threatend.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
@@ -10,9 +10,9 @@ import 'package:chess/models/PieceType.dart';
 List<DestModel> getCastlingDest(PieceModel pieceModel) {
   List<DestModel> dests = [];
   PieceModel? suspectedRook1 =
-      PieceFound(pieceModel.x! + 3 * kSQUARE_LENGTH, pieceModel.y!);
+      pieceFound(pieceModel.x! + 3 * kSQUARE_LENGTH, pieceModel.y!);
   PieceModel? suspectedRook2 =
-      PieceFound(pieceModel.x! - 4 * kSQUARE_LENGTH, pieceModel.y!);
+      pieceFound(pieceModel.x! - 4 * kSQUARE_LENGTH, pieceModel.y!);
   bool kingThretend = isKingThreatend(pieceModel.pieceColor!);
 
   bool castlingRight = true;
@@ -23,7 +23,7 @@ List<DestModel> getCastlingDest(PieceModel pieceModel) {
   List<DestModel> threatendDest = getAllSidePiecesDest(pieceDiffColor);
 
   for (int i = 1; i < 3; i++) {
-    if (PieceFound(pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y!) != null ||
+    if (pieceFound(pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y!) != null ||
         threatendDest.contains(DestModel(
             x: pieceModel.x! + i * kSQUARE_LENGTH, y: pieceModel.y!))) {
       castlingRight = false;
@@ -31,7 +31,7 @@ List<DestModel> getCastlingDest(PieceModel pieceModel) {
     }
   }
   for (int i = 1; i < 4; i++) {
-    if (PieceFound(pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y!) != null ||
+    if (pieceFound(pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y!) != null ||
         threatendDest.contains(DestModel(
             x: pieceModel.x! - i * kSQUARE_LENGTH, y: pieceModel.y!))) {
       castlingLeft = false;

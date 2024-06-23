@@ -1,2 +1,3 @@
 const double kSQUARE_LENGTH = 55;
-const double kBOARD_LENGTH = 55 * 8;
+const double mobTabBreakPoint = 600;
+const double tabDeskBreakPoint = 850;

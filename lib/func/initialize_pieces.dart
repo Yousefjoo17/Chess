@@ -74,6 +74,6 @@ void initliaePiecesOneSide(String color, double yOffset) {
 }
 
 void initializePieces() {
-  initliaePiecesOneSide("white", kBOARD_LENGTH - kSQUARE_LENGTH);
+  initliaePiecesOneSide("white", kSQUARE_LENGTH*8 - kSQUARE_LENGTH);
   initliaePiecesOneSide("black", 0);
 }

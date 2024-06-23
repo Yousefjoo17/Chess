@@ -1,5 +1,5 @@
 import 'package:chess/constants.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 
@@ -19,7 +19,7 @@ List<DestModel> getKnightDest(PieceModel pieceModel) {
   for (List<int> move in moves) {
     double newX = pieceModel.x! + move[0] * kSQUARE_LENGTH;
     double newY = pieceModel.y! + move[1] * kSQUARE_LENGTH;
-    PieceModel? foundPieceModel = PieceFound(newX, newY);
+    PieceModel? foundPieceModel = pieceFound(newX, newY);
 
     DestModel destModel = DestModel(
       x: newX,

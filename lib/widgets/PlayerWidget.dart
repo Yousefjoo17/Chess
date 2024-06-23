@@ -16,7 +16,7 @@ class PlayerWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Container(
-        width: kBOARD_LENGTH,
+        width: kSQUARE_LENGTH*8,
         decoration: BoxDecoration(
           color: color,
           border: Border.all(),

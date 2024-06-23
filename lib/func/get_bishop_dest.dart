@@ -1,5 +1,5 @@
 import 'package:chess/constants.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
@@ -16,7 +16,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //right down
   for (int i = 1; i < n; i++) {
-    foundPieceModel = PieceFound(
+    foundPieceModel = pieceFound(
         pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y! + i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! + i * kSQUARE_LENGTH,
@@ -36,7 +36,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //left down
   for (int i = 1; i < n; i++) {
-    foundPieceModel = PieceFound(
+    foundPieceModel = pieceFound(
         pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y! + i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! - i * kSQUARE_LENGTH,
@@ -57,7 +57,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
 
 //Right up
   for (int i = 1; i < n; i++) {
-    foundPieceModel = PieceFound(
+    foundPieceModel = pieceFound(
         pieceModel.x! + i * kSQUARE_LENGTH, pieceModel.y! - i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! + i * kSQUARE_LENGTH,
@@ -77,7 +77,7 @@ List<DestModel> getBishopDest(PieceModel pieceModel) {
   }
   //left up
   for (int i = 1; i < n; i++) {
-    foundPieceModel = PieceFound(
+    foundPieceModel = pieceFound(
         pieceModel.x! - i * kSQUARE_LENGTH, pieceModel.y! - i * kSQUARE_LENGTH);
     destModel = DestModel(
       x: pieceModel.x! - i * kSQUARE_LENGTH,

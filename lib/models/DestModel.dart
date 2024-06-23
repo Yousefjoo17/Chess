@@ -1,6 +1,7 @@
 class DestModel {
   double? x;
   double? y;
+  bool?  enPassen;
 
   DestModel({required this.x, required this.y});
 

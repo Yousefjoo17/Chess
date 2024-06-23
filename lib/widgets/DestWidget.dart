@@ -1,4 +1,5 @@
 import 'package:chess/func/can_move_and_save_king.dart';
+import 'package:chess/models/EnPassenDestModel.dart';
 import 'package:chess/viewModel/cubit/manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:chess/models/DestModel.dart';
@@ -22,7 +23,6 @@ class DestWidget extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    //move piece
                     BlocProvider.of<ManagerCubit>(context)
                         .movePiece(pieceModel, destModel.x!, destModel.y!);
                   },
@@ -30,11 +30,24 @@ class DestWidget extends StatelessWidget {
                     width: kSQUARE_LENGTH,
                     height: kSQUARE_LENGTH,
                     color: Colors.transparent,
-                    child: const Center(
-                      child: CircleAvatar(
-                        radius: kSQUARE_LENGTH / 10,
-                        backgroundColor: Color.fromARGB(255, 193, 199, 193),
-                      ),
+                    child: Center(
+                      child: destModel is! DestEnpassantModel
+                          ? const CircleAvatar(
+                              radius: kSQUARE_LENGTH / 10,
+                              backgroundColor:
+                                  Color.fromARGB(255, 216, 221, 216),
+                            )
+                          : CircleAvatar(
+                              radius: kSQUARE_LENGTH / 2,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 216, 221, 216),
+                              child: CircleAvatar(
+                                radius: kSQUARE_LENGTH / 2.45,
+                                backgroundColor: isWhiteSquare(destModel)
+                                    ? Colors.white
+                                    : Colors.brown,
+                              ),
+                            ),
                     ),
                   ),
                 ),
@@ -51,4 +64,17 @@ class DestWidget extends StatelessWidget {
             ),
           );
   }
+}
+
+bool isWhiteSquare(DestModel destModel) {
+  if ((destModel.x! ~/ kSQUARE_LENGTH).toInt().isEven &&
+      (destModel.y! ~/ kSQUARE_LENGTH).toInt().isEven) {
+    return true;
+  }
+  if ((destModel.x! ~/ kSQUARE_LENGTH).toInt().isOdd &&
+      (destModel.y! ~/ kSQUARE_LENGTH).toInt().isOdd) {
+    return true;
+  }
+
+  return false;
 }

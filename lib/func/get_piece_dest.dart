@@ -43,11 +43,10 @@ List<DestModel> getPieceDest(PieceModel pieceModel) {
 
   List<DestModel> elementsToRemove = [];
   for (var element in dests) {
-    if (element.x! < 0 || element.x! >= kBOARD_LENGTH || element.y! < 0 || element.y! >= kBOARD_LENGTH) {
+    if (element.x! < 0 || element.x! >= kSQUARE_LENGTH*8 || element.y! < 0 || element.y! >= kSQUARE_LENGTH*8) {
       elementsToRemove.add(element);
     }
   }
-  
   dests.removeWhere((element) => elementsToRemove.contains(element));
   return dests;
 }

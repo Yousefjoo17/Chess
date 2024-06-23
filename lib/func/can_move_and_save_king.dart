@@ -1,12 +1,12 @@
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/func/is_king_threatend.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 
 bool canMoveAndSaveKing(PieceModel pieceModel, DestModel destModel) {
   PieceModel? foundPieceModel;
-  foundPieceModel = PieceFound(destModel.x!, destModel.y!);
+  foundPieceModel = pieceFound(destModel.x!, destModel.y!);
   DestModel destModelTemp = DestModel(x: pieceModel.x, y: pieceModel.y);
   piecesInfo[pieceModel.id]!.x = destModel.x;
   piecesInfo[pieceModel.id]!.y = destModel.y;

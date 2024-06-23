@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:chess/constants.dart';
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/func/initialize_Pieces.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
 import 'package:chess/main.dart';
 import 'package:chess/models/PieceColor.dart';
 import 'package:chess/models/PieceModel.dart';
@@ -31,17 +31,17 @@ class ManagerCubit extends Cubit<ManagerState> {
     // for castling
     if (pieceModel.pieceName == PieceName.king) {
       if (x == pieceModel.x! + 2 * kSQUARE_LENGTH) {
-        PieceModel rook = PieceFound(x + kSQUARE_LENGTH, y)!;
+        PieceModel rook = pieceFound(x + kSQUARE_LENGTH, y)!;
         piecesInfo[rook.id]!.x = x - 1 * kSQUARE_LENGTH;
       } else if (x == pieceModel.x! - 2 * kSQUARE_LENGTH) {
-        PieceModel rook = PieceFound(x - 2 * kSQUARE_LENGTH, y)!;
+        PieceModel rook = pieceFound(x - 2 * kSQUARE_LENGTH, y)!;
         piecesInfo[rook.id]!.x = x + 1 * kSQUARE_LENGTH;
       }
     }
 
     if (pieceModel.pieceName == PieceName.pawn) {
       if (pieceModel.pieceColor == PieceColor.white) {
-        PieceModel? foundPawn = PieceFound(x, y + kSQUARE_LENGTH);
+        PieceModel? foundPawn = pieceFound(x, y + kSQUARE_LENGTH);
         if (foundPawn != null &&
             foundPawn.pieceName == PieceName.pawn &&
             foundPawn.pieceColor == PieceColor.black &&
@@ -49,7 +49,7 @@ class ManagerCubit extends Cubit<ManagerState> {
           piecesInfo[foundPawn.id]!.live = false;
         }
       } else {
-        PieceModel? foundPawn = PieceFound(x, y - kSQUARE_LENGTH);
+        PieceModel? foundPawn = pieceFound(x, y - kSQUARE_LENGTH);
         if (foundPawn != null &&
             foundPawn.pieceName == PieceName.pawn &&
             foundPawn.pieceColor == PieceColor.white &&
@@ -71,7 +71,7 @@ class ManagerCubit extends Cubit<ManagerState> {
 
     /**********sperator*********/
     PieceModel? foundPieceModel;
-    foundPieceModel = PieceFound(x, y);
+    foundPieceModel = pieceFound(x, y);
     piecesInfo[pieceModel.id]!.selected = false;
     selectedPiece = null;
     pieceModel.movedBefore = true;

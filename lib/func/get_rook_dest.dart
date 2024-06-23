@@ -1,5 +1,5 @@
 import 'package:chess/constants.dart';
-import 'package:chess/func/is_piece_found_in_pos.dart';
+import 'package:chess/func/isPieceFound.dart';
 import 'package:chess/models/DestModel.dart';
 import 'package:chess/models/PieceModel.dart';
 import 'package:chess/models/PieceType.dart';
@@ -17,7 +17,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //right
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        PieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
+        pieceFound(pieceModel.x! + kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
       x: pieceModel.x! + kSQUARE_LENGTH * i,
       y: pieceModel.y,
@@ -37,7 +37,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //down
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        PieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
+        pieceFound(pieceModel.x!, pieceModel.y! + kSQUARE_LENGTH * i);
     destModel = DestModel(
       x: pieceModel.x!,
       y: pieceModel.y! + kSQUARE_LENGTH * i,
@@ -58,7 +58,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
 //left
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        PieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
+        pieceFound(pieceModel.x! - kSQUARE_LENGTH * i, pieceModel.y!);
     destModel = DestModel(
       x: pieceModel.x! - kSQUARE_LENGTH * i,
       y: pieceModel.y!,
@@ -78,7 +78,7 @@ List<DestModel> getRookDest(PieceModel pieceModel) {
   //up
   for (int i = 1; i < n; i++) {
     foundPieceModel =
-        PieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
+        pieceFound(pieceModel.x!, pieceModel.y! - kSQUARE_LENGTH * i);
     destModel = DestModel(
       x: pieceModel.x!,
       y: pieceModel.y! - kSQUARE_LENGTH * i,

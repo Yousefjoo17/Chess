@@ -36,7 +36,7 @@ List<Widget> getDiedPieces(PieceColor pieceColor) {
     }
   }
   if (images.isEmpty) {
-    images.add(const SizedBox(
+    images.add( SizedBox(
       width: kSQUARE_LENGTH / 3,
       height: kSQUARE_LENGTH / 3,
     ));
